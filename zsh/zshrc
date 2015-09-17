@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jsmedmar/.oh-my-zsh
+export ZSH=/Users/medinaj/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,7 +54,6 @@ plugins=(git)
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # brew installation of python
@@ -64,6 +63,7 @@ export PATH=/usr/local/share/python:$PATH
 source $ZSH/oh-my-zsh.sh
 
 # virtualenvwrapper
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
@@ -95,6 +95,19 @@ fi
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias zshconfig="subl ~/.zshrc"
-alias sourcezsh="source ~/.zshrc"
+alias zconfig="subl ~/.zshrc"
+alias zource="source ~/.zshrc"
 alias leukweb1="ssh medinaj@plvleukweb1.mskcc.org"
+
+# Restrict PIP to virtual environments
+export PIP_REQUIRE_VIRTUALENV=true
+
+# Define Global PIP to install packages to root
+gpip(){
+        PIP_REQUIRE_VIRTUALENV="" PIP "$@"
+}
+
+# Define Global PIP3 to install packages to root
+gpip3(){
+        PIP_REQUIRE_VIRTUALENV="" PIP3 "$@"
+}
