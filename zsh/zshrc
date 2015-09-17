@@ -51,12 +51,25 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# brew installation of python
+export PATH=/usr/local/share/python:$PATH
+
+# my oh zsh
 source $ZSH/oh-my-zsh.sh
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+# psql
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -83,3 +96,5 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias zshconfig="subl ~/.zshrc"
+alias sourcezsh="source ~/.zshrc"
+alias leukweb1="ssh medinaj@plvleukweb1.mskcc.org"
