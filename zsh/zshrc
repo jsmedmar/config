@@ -104,6 +104,7 @@ alias zource="source ~/.zshrc"
 
 # ssh
 alias leukweb1="ssh medinaj@plvleukweb1.mskcc.org"
+alias leukgen="ssh medinaj@leukgen.mskcc.org"
 alias luna="ssh medinaj@luna.mskcc.org"
 
 # virtualenvs
