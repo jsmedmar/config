@@ -1,3 +1,9 @@
+#!/bin/bash
+
+# ZSH CONFIGURATION
+# =============================================================================
+# For more, see: ZSH CUSTOM CONFIGURATION
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/medinaj/.oh-my-zsh
 
@@ -6,6 +12,98 @@ export ZSH=/Users/medinaj/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# my oh zsh
+source $ZSH/oh-my-zsh.sh
+
+# PATH CONFIGURATION
+# =============================================================================
+
+# User configuration
+# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# PYTHON PATH
+# =============================================================================
+
+# brew installation of python
+export PATH=/usr/local/share/python:$PATH
+
+# VIRTUAL ENVS
+# =============================================================================
+
+# virtualenvwrapper
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Restrict PIP to virtual environments
+export PIP_REQUIRE_VIRTUALENV=true
+
+# Define Global PIP to install packages to root
+gpip(){
+        PIP_REQUIRE_VIRTUALENV="" PIP "$@"
+}
+gpip2(){
+        PIP_REQUIRE_VIRTUALENV="" PIP2 "$@"
+}
+gpip3(){
+        PIP_REQUIRE_VIRTUALENV="" PIP3 "$@"
+}
+
+# PSQL
+# =============================================================================
+
+# psql
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+# EDITOR
+# =============================================================================
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='subl'
+else
+  export EDITOR='subl'
+fi
+
+# ALIASES
+# =============================================================================
+
+# sublime
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+# zsh
+alias zconfig="subl ~/.zshrc"
+alias zource="source ~/.zshrc"
+
+# ssh
+alias leukweb1="ssh medinaj@plvleukweb1.mskcc.org"
+alias leukgen="ssh medinaj@leukgen.mskcc.org"
+alias luna="ssh medinaj@luna.mskcc.org"
+
+# virtualenvs
+alias v='workon'
+alias v.d='deactivate'
+alias v.ls='lsvirtualenv'
+alias v.mk='mkvirtualenv'
+alias v.rm='rmvirtualenv'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
+
+# django
+alias dj="python manage.py"
+alias dj.test="python manage.py test"
+
+# ZSH CUSTOM CONFIGURATION
+# =============================================================================
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,41 +143,8 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-
-# User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# brew installation of python
-export PATH=/usr/local/share/python:$PATH
-
-# my oh zsh
-source $ZSH/oh-my-zsh.sh
-
-# virtualenvwrapper
-VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
-
-# psql
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='subl'
-else
-  export EDITOR='subl'
-fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -94,42 +159,3 @@ fi
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# sublime
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
-# zsh
-alias zconfig="subl ~/.zshrc"
-alias zource="source ~/.zshrc"
-
-# ssh
-alias leukweb1="ssh medinaj@plvleukweb1.mskcc.org"
-alias leukgen="ssh medinaj@leukgen.mskcc.org"
-alias luna="ssh medinaj@luna.mskcc.org"
-
-# virtualenvs
-alias v='workon'
-alias v.d='deactivate'
-alias v.ls='lsvirtualenv'
-alias v.mk='mkvirtualenv'
-alias v.rm='rmvirtualenv'
-alias v.cd='cdvirtualenv'
-alias v.lssitepackages='lssitepackages'
-
-# django
-alias dj="python manage.py"
-alias dj.test="python manage.py test"
-
-# Restrict PIP to virtual environments
-export PIP_REQUIRE_VIRTUALENV=true
-
-# Define Global PIP to install packages to root
-gpip(){
-        PIP_REQUIRE_VIRTUALENV="" PIP "$@"
-}
-gpip2(){
-        PIP_REQUIRE_VIRTUALENV="" PIP2 "$@"
-}
-gpip3(){
-        PIP_REQUIRE_VIRTUALENV="" PIP3 "$@"
-}
