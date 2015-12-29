@@ -52,12 +52,12 @@ if 0 | endif
 
 " Be iMproved
 if has('vim_starting')
-if &compatible
- set nocompatible
-endif
+    if &compatible
+        set nocompatible
+    endif
 
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
@@ -87,7 +87,7 @@ NeoBundleCheck
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " show the matching part of the pair for [] {} and ()
 set showmatch

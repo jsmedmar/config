@@ -92,12 +92,13 @@ alias charon="ssh medinaj@charon.mskcc.org"
 
 # virtualenvs
 alias v='workon'
-alias v.d='deactivate'
-alias v.ls='lsvirtualenv'
-alias v.mk='mkvirtualenv'
-alias v.rm='rmvirtualenv'
-alias v.cd='cdvirtualenv'
-alias v.lssitepackages='lssitepackages'
+alias vd='deactivate'
+alias vls='lsvirtualenv'
+alias vmk='mkvirtualenv'
+alias vrm='rmvirtualenv'
+alias vcd='cdvirtualenv'
+alias vlspackages='lssitepackages'
+alias leukapp='workon leukapp'
 
 # django
 alias dj="python manage.py"
