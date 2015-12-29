@@ -88,6 +88,7 @@ alias zource="source ~/.zshrc"
 alias leukweb1="ssh medinaj@plvleukweb1.mskcc.org"
 alias leukgen="ssh medinaj@leukgen.mskcc.org"
 alias luna="ssh medinaj@luna.mskcc.org"
+alias charon="ssh medinaj@charon.mskcc.org"
 
 # virtualenvs
 alias v='workon'
