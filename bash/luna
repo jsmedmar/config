@@ -1,0 +1,39 @@
+#!/bin/bash
+
+: '
+Juan`s bash_profile at luna.
+'
+
+# BASHRC
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+# load bash commands
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+# LOCAL VARIABLES
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$PATH:/home/medinaj/bin
+export RMATE_HOST=localhost
+export RMATE_PORT=52699
+export PS1='\h:\W \u\$ '
+
+# LOAD LEUKGEN ENVIRONMENTS
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+# load cgp environment
+if [ -f /ifs/work/leukgen/.leukenvs/envs/adolf ]; then
+    . /ifs/work/leukgen/.leukenvs/envs/adolf
+fi
+
+# git aliases
+if [ -f /ifs/work/leukgen/.leukenvs/aliases/git ]; then
+   . /ifs/work/leukgen/.leukenvs/aliases/git
+fi
+
+# leukgen aliases
+if [ -f /ifs/work/leukgen/.leukenvs/aliases/lk ]; then
+   . /ifs/work/leukgen/.leukenvs/aliases/lk
+fi
