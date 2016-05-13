@@ -39,7 +39,7 @@ export PATH=/usr/local/share/python:$PATH
 # =============================================================================
 
 # virtualenvwrapper
-VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
@@ -89,6 +89,7 @@ alias leukweb1="ssh medinaj@plvleukweb1.mskcc.org"
 alias leukgen="ssh medinaj@leukgen.mskcc.org"
 alias luna="ssh medinaj@luna.mskcc.org"
 alias charon="ssh medinaj@charon.mskcc.org"
+alias europa="ssh -N -L localhost:8888:localhost:8889"
 
 # virtualenvs
 alias v='workon'
@@ -103,6 +104,8 @@ alias leukapp='workon leukapp'
 # django
 alias dj="python manage.py"
 alias dj.test="python manage.py test"
+
+source $HOME/.lk
 
 # ZSH CUSTOM CONFIGURATION
 # =============================================================================
