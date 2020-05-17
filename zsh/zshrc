@@ -27,66 +27,41 @@ export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Restrict PIP to virtual environments
-export PIP_REQUIRE_VIRTUALENV=true
-
-# Define Global PIP to install packages to root
-gpip(){
-        PIP_REQUIRE_VIRTUALENV="false" PIP "$@"
-}
-gpip2(){
-        PIP_REQUIRE_VIRTUALENV="false" PIP2 "$@"
-}
-gpip3(){
-        PIP_REQUIRE_VIRTUALENV="false" PIP3 "$@"
-}
+export PIP_REQUIRE_VIRTUALENV="false"
 
 # psql
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+export PATH=/Applications/Postgres.app/Contents/Versions/10/bin:$PATH
 
 # See: https://gist.github.com/DanHerbert/9520689
 export PATH=$HOME/.npm/bin:$PATH
 
+# my executables
+export PATH=/Users/medinaj/Projects/config/bin:$PATH
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR="subl"
+  export EDITOR="code"
 else
-  export EDITOR="subl"
+  export EDITOR="code"
 fi
 
-# sublime
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+# make sure aliases are updated after running _alie
+alie () { _alie "$@"; source ~/.alie }
 
-# zsh
-alias zconfig="subl ~/.zshrc"
-alias zource="source ~/.zshrc"
+# load registered aliases on new shells
+source ~/.alie
 
-# ssh
-alias europa="ssh -N -L localhost:8888:localhost:8887 selene"
-alias charon="ssh charon"
-alias leukgen="ssh leukgen"
-alias leukweb1="ssh plvleukweb1"
-alias luna="ssh luna"
-alias selene="ssh selene"
-alias leukbot="ssh -t selene 'chmod 777 /dev/pts/* > /dev/null 2>&1; \
-    sudo -i -u leukbot'"
+# source isabl autocompletion
+. /Users/medinaj/Projects/msk/isabl/env/juno/.completion/isabl_zsh.sh
 
-# virtualenvs
-alias leukapp='cd ~/Projects/msk/leukapp/master && workon leukapp'
+# Make sure I don't need to write ssh password all the time.
+ssh-add -K
 
-# django
-alias dj="python manage.py"
+# added by travis gem
+[ -f /Users/medinaj/.travis/travis.sh ] && source /Users/medinaj/.travis/travis.sh
 
-# mount leukgen
-alias leukdc="sudo sshfs \
-    -o allow_other,defer_permissions,follow_symlinks \
-    -o IdentityFile=/Users/medinaj/.ssh/id_rsa \
-    medinaj@luna.mskcc.org:/ifs/res/leukgen/local/opt/leukdc /mnt/leukdc"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/medinaj/Projects/msk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/medinaj/Projects/msk/google-cloud-sdk/path.zsh.inc'; fi
 
-alias repos="sudo sshfs -o allow_other,defer_permissions \
-    medinaj@luna.mskcc.org:/ifs/work/leukgen/home/s/repos \
-    /mnt/repos -o IdentityFile=/Users/medinaj/.ssh/id_rsa"
-
-alias master="sudo sshfs \
-    -o allow_other,defer_permissions \
-    -o IdentityFile=/Users/medinaj/.ssh/id_rsa \
-    medinaj@luna.mskcc.org:/ifs/work/leukgen/local/opt /mnt/master"
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/medinaj/Projects/msk/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/medinaj/Projects/msk/google-cloud-sdk/completion.zsh.inc'; fi

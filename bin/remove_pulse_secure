@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rm -rf /Applications/Pulse\ Secure.app
+find /Users/medinaj/Library -name '*juniper*' -exec rm -rf {} +\nfxcl
+find /Users/medinaj/Library -name '*pulsesecure*' -exec rm -rf {} +\n
+find /Users/medinaj/Library -name '*Pulse*Secure' -exec rm -rf {} +\n
